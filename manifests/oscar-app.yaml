@@ -1,0 +1,119 @@
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+   namespace: oscar
+   name: postgres-credentials
+   labels:
+     app: django
+     component: db
+     tier: backend
+type: Opaque
+data:
+   user: cG9zdGdyZXM=
+   password: cGFzc3dvcmQ=
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   namespace: oscar
+   name: oscar-django-deployment
+   labels:
+     app: django
+     component: oscar
+     tier: frontend
+spec:
+   replicas: 1
+   selector:
+     matchLabels:
+       app: django
+   template:
+     metadata:
+       labels:
+          app: django
+          component: oscar
+          tier: frontend
+     spec:
+       containers:
+         - name: oscar-django
+           #image: gitlab-registry.steph-infra.emeagso.lab/pracdev/nke-oscar-app
+           image: nxmjelicic/nke-oscar-app
+           ports:
+             - containerPort: 8000
+           env:
+             - name: DATABASE_USER
+               valueFrom:
+                 secretKeyRef:
+                   name: postgres-credentials
+                   key: user
+             - name: DATABASE_PASSWORD
+               valueFrom:
+                 secretKeyRef:
+                   name: postgres-credentials
+                   key: password
+             - name: DATABASE_HOST
+               value: postgres-service
+
+---
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+   namespace: oscar
+   name: oscar-django-migrations
+   labels:
+     app: django
+     component: oscar
+     tier: frontend
+spec:
+   template:
+     metadata:
+       labels:
+         app: django
+         component: oscar
+         tier: frontend
+     spec:
+       containers:
+         - name: django
+           #image: gitlab-registry.steph-infra.emeagso.lab/pracdev/nke-oscar-app
+           image: nxmjelicic/nke-oscar-app
+           command: ['/bin/bash', 'migrate.sh']
+           env:
+             - name: DATABASE_USER
+               valueFrom:
+                 secretKeyRef:
+                   name: postgres-credentials
+                   key: user
+             - name: DATABASE_PASSWORD
+               valueFrom:
+                 secretKeyRef:
+                   name: postgres-credentials
+                   key: password
+             - name: DATABASE_HOST
+               value: postgres-service
+       restartPolicy: Never
+   backoffLimit: 5
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+   namespace: oscar
+   name: oscar-django-service
+   labels:
+     app: django
+     component: oscar
+     tier: frontend
+spec:
+   selector:
+     app: django
+   ports:
+   - protocol: TCP
+     port: 8000
+   type: NodePort
+
+---

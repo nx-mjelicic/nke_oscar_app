@@ -1,0 +1,91 @@
+[
+{
+    "model": "promotions.pagepromotion",
+    "pk": 4,
+    "fields": {
+        "content_type": [
+            "promotions",
+            "rawhtml"
+        ],
+        "object_id": 1,
+        "position": "page",
+        "display_order": 0,
+        "clicks": 0,
+        "date_created": "2014-05-06T10:31:06.444Z",
+        "page_url": "/en-us/"
+    }
+},
+{
+    "model": "promotions.pagepromotion",
+    "pk": 5,
+    "fields": {
+        "content_type": [
+            "promotions",
+            "handpickedproductlist"
+        ],
+        "object_id": 1,
+        "position": "page",
+        "display_order": 0,
+        "clicks": 0,
+        "date_created": "2014-05-06T10:31:55.034Z",
+        "page_url": "/en-us/"
+    }
+},
+{
+    "model": "promotions.rawhtml",
+    "pk": 1,
+    "fields": {
+        "name": "Welcome!",
+        "display_type": "",
+        "body": "Welcome to Oscar's sandbox site.&nbsp; This is a example install of Oscar, making very few customisations to the core.&nbsp; It is intended as a playground for experimenting with Oscar's features.<br><br>You can get access to the dashboard <a href=\"http://latest.oscarcommerce.com/gateway/\" rel=\"nofollow\">using this form</a>.",
+        "date_created": "2013-01-08T17:12:09.526Z"
+    }
+},
+{
+    "model": "promotions.handpickedproductlist",
+    "pk": 1,
+    "fields": {
+        "name": "Most Popular",
+        "description": "A selection of our most popular Nutanix clothing and products.<br><br>",
+        "link_url": "",
+        "link_text": "",
+        "date_created": "2013-01-08T17:19:57.759Z"
+    }
+},
+{
+    "model": "promotions.orderedproduct",
+    "pk": 1,
+    "fields": {
+        "list": 1,
+        "product": 153,
+        "display_order": 0
+    }
+},
+{
+    "model": "promotions.orderedproduct",
+    "pk": 2,
+    "fields": {
+        "list": 1,
+        "product": 154,
+        "display_order": 0
+    }
+},
+{
+    "model": "promotions.orderedproduct",
+    "pk": 3,
+    "fields": {
+        "list": 1,
+        "product": 155,
+        "display_order": 0
+    }
+},
+{
+    "model": "promotions.orderedproduct",
+    "pk": 4,
+    "fields": {
+        "list": 1,
+        "product": 156,
+        "display_order": 0
+    }
+}
+]
