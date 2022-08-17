@@ -8,7 +8,7 @@ Other useful links:
 
 * [The complete documentation](https://django-oscar.readthedocs.io/en/latest/) for the Oscar framework
 * The blog post on nutanix.dev ["Nutanix Cloud Native and Calm: Better Together!"](https://developer.nutanix.com/2019/01/13/nutanix-cloud-native-and-calm-better-together/) (the same application with additional integration with ERA, Calm and Objects)
-* The customised codebase for building the app version (containing images for Nutanix shop) can be found in the folder [Nutanix-Oscar](https://gitlab.steph-infra.emeagso.lab/pracdev/nke-oscar-app/Nutanix-Oscar)) 
+* The customised codebase for building the app version (containing images for Nutanix shop) can be found in the folder [Nutanix-Oscar](https://github.com/nx-mjelicic/nke_oscar_app/tree/main/Nutanix-Oscar) 
 
 ## Application Architecture
 
