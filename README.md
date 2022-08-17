@@ -54,6 +54,10 @@ Find the service port:
 
 ``` kubectl -n oscar get svc oscar-django-service ```
 
-In a browser, open the app URL `http://<Node IP>:<NodePort>/en-gb/` 
+In a browser, open the app URL `http://<Node IP>:<NodePort>/en-gb/`  and the app should look like this
+
+![](/oscar_images/oscar.png)
+
+![](/oscar_images/oscar_all_products.png)
 
 ## Troubleshooting
