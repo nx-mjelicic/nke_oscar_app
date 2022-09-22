@@ -2,7 +2,7 @@
 
 This is an example application for NKE FastTrack. The app is containerised version of the Oscar app, a popular e-commerce framework based on Django. For FastTrack purposes, two versions of the deployment are developed/customised (with and without Nutanix Objects for storing static files). This repo holds the manifest of the **Oscar app that stores static files locally**. 
 
-The application version using Nutanix Objects can be found in [this repo](https://gitlab.steph-infra.emeagso.lab/pracdev/nke-oscar-app_objects).
+The application version using Nutanix Objects can be found in [this repo](https://github.com/nx-mjelicic/nke_oscar_app_objects).
 
 Other useful links:
 
